@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unicat</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <style>
+        .center-cropped {
+            width: 200px;
+            height: 200px;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .table > tr > td {
+            border-top: 1px solid #ddd;
+        }
+
+        .sub-tree {
+            margin-left: 30px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .sub-tree td {
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/">Unicat</a>
+            </div>
+        </div>
+    </nav>
+
+    <div ng-view="" class="view"></div>
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/traceur/traceur.js"></script>
+<script>
+    traceur.options.experimental = true;
+    new traceur.WebPageTranscoder(document.location.href).run();
+</script>
+<script type="module" src="bootstrap.js"></script>
+</body>
+</html>

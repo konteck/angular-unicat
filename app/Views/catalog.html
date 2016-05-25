@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="center-cropped" style="background-image:url({{vm.cover}})"/>
+    </div>
+    <h3>{{vm.name}}</h3>
+    <p>{{vm.text}}</p>
+</div>
+<div class="col-md-8">
+    <table class="table tree">
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="cat in vm.content">
+            <td>
+                {{cat.name}}
+                <table class="sub-tree">
+                    <tr ng-repeat="prod in cat.data">
+                        <td>
+                            <div class="center-cropped" style="width:100px; height:100px;background-image:url({{prod.pictures[0]}})"/>
+                        </td>
+                        <td>
+                            <a href="#/show/{{cat.name}}/{{$index}}">{{prod.name}}</a>
+                        </td>
+                        <td>
+                            <button ng-click="vm.remove(cat.name, $index)" class="btn  btn-default">-</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <button ng-click="vm.add(cat.name)" class="btn btn-default">+</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
